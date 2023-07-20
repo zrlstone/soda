@@ -1,0 +1,6 @@
+<h1>Our Music Videos</h1>
+<ul>
+  <% @videos.each do |video| %> <li>
+    <%= link_to video.name, video_path(video.id) %> </li>
+  <% end %>
+</ul>

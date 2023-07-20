@@ -1,0 +1,24 @@
+<h1><%= @video.name %></h1>
+<h2>ID #<%= @video.id %></h2>
+<% if flash[:notice].present? %>
+  <aside>
+  <%= flash[:notice] %>
+  </aside>
+<% end %>
+<section>
+  <h3>Rate This Video</h3>
+
+  <ol>
+    <% (1..5).each do |rating| %>
+      <li>
+        <%= button_to rating,
+                      video_ratings_path,
+                      params: {
+                                video_id: @video.id,
+                                rating: rating
+                              }
+        %>
+      </li>
+    <% end %>
+  </ol>
+</section>
